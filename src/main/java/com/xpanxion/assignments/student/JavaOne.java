@@ -25,7 +25,19 @@ public class JavaOne {
     }
 
     public void ex2() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        int count = 0;
         System.out.println("Student 1: ex2.");
+        System.out.println("Enter in a string: ");
+        input = sc.nextLine();
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) >= 65 && input.charAt(i) <= 90) {
+                count++;
+            }
+        }
+        System.out.println("The amount of uppercase letters in this are: " + count);
     }
 
     public void ex3() {
@@ -65,6 +77,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex1();
+        javaOne.ex2();
     }
 }
