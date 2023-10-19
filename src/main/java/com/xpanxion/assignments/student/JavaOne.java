@@ -1,5 +1,8 @@
 package com.xpanxion.assignments.student;
 
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 public class JavaOne {
 
     //
@@ -21,7 +24,25 @@ public class JavaOne {
     }
 
     public void ex3() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        int count = 0;
         System.out.println("Student 1: ex3.");
+        System.out.println("Enter in a sentence: ");
+        input = sc.nextLine();
+
+        StringTokenizer st = new StringTokenizer(input);
+
+        System.out.println("Every other word capatalized is: ");
+
+        while (st.hasMoreTokens()) {
+
+            if (count % 2 == 0) System.out.println(st.nextToken().toUpperCase());
+            
+            else System.out.println(st.nextToken().toLowerCase());
+            
+            count++;
+        }
     }
 
     public void ex4() {
@@ -55,4 +76,8 @@ public class JavaOne {
     //
     // Private helper methods
     //
+    public static void main(String[] args) {
+        JavaOne javaOne = new JavaOne();
+        javaOne.ex3();
+    }
 }
