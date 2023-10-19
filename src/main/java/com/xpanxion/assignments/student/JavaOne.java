@@ -97,9 +97,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        dev-js-ex3
         javaOne.ex3();
-
- 
     }
 }
