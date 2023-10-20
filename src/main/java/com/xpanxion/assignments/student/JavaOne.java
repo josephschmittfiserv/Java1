@@ -109,7 +109,17 @@ public class JavaOne {
     }
 
     public void ex6() {
+        Scanner sc = new Scanner(System.in);
+        int input1, input2;
+
         System.out.println("Student 1: ex6.");
+
+        System.out.print("Enter first number:");
+        input1 = sc.nextInt();
+        System.out.print("Enter first number:");
+        input2 = sc.nextInt();
+        
+        System.out.println("Result: " + (input1 + input2));
     }
 
     public void ex7() {
@@ -133,6 +143,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex5();
+        javaOne.ex6();
     }
 }
