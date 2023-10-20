@@ -122,8 +122,36 @@ public class JavaOne {
         System.out.println("Result: " + (input1 + input2));
     }
 
+    public void add(int x, int y) {
+        System.out.println(x + y);
+    }
+    public void sub(int x, int y) {
+        System.out.println(x - y);
+    }
+    public void div(int x, int y) {
+        System.out.println(x / y);
+    }
+    public void mul(int x, int y) {
+        System.out.println(x * y);
+    }
+
     public void ex7() {
+        Scanner sc = new Scanner(System.in);
+        int input1, input2;
+        String input3;
         System.out.println("Student 1: ex7.");
+
+        System.out.print("Enter first number:");
+        input1 = sc.nextInt();
+        System.out.print("Enter first number:");
+        input2 = sc.nextInt();
+        System.out.print("Enter operation (add, sub, mul, div): ");
+        input3 = sc.next();
+
+        if (input3.equals("add")) add(input1, input2);
+        else if (input3.equals("sub")) sub(input1, input2);
+        else if (input3.equals("div")) div(input1, input2);
+        else if (input3.equals("mul")) mul(input1, input2);
     }
 
     public void ex8() {
@@ -143,6 +171,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex6();
+        javaOne.ex7();
     }
 }
