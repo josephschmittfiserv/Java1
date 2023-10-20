@@ -65,7 +65,18 @@ public class JavaOne {
     }
 
     public void ex4() {
+        Scanner sc = new Scanner(System.in);
+        String input;
         System.out.println("Student 1: ex4.");
+        System.out.print("Enter in a word to see if palindrome:");
+        input = sc.next();
+
+        String sb = new StringBuilder(input).reverse().toString();
+
+        if (input.equals(sb)) System.out.println("YES");
+        else System.out.println("NO");
+        
+
     }
 
     public void ex5() {
@@ -97,6 +108,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex3();
+        javaOne.ex4();
     }
 }
