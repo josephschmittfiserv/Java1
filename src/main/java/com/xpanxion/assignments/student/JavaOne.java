@@ -84,85 +84,20 @@ public class JavaOne {
 
     public void ex5() {
         Scanner sc = new Scanner(System.in);
-        String input = "";
+        String input = "", vowel = "aeiou", consonant = "bcdfghjklmnpqrstvwxyz";
         int vowelCount = 0, consantCount = 0;
         System.out.println("Student 1: ex5.");
         while (!input.equals("quit")) {
             System.out.print("Enter in a word to see constants and vowels:");
             input = sc.nextLine().toLowerCase();
-            if (input.equals("quit")) break;
+            if (input.equals("quit"))
+                break;
 
             for (int i = 0; i < input.length(); i++) {
-                if (input.charAt(i) == 'a' || input.charAt(i) == 'e' || input.charAt(i) == 'i'
-                        || input.charAt(i) == 'o' || input.charAt(i) == 'u') {
+                if (vowel.indexOf(input.charAt(i)) != -1)
                     vowelCount++;
-                }
-
-                switch (input.charAt(i)) {
-                    case 'b':
-                        consantCount++;
-                        break;
-                    case 'c':
-                        consantCount++;
-                        break;
-                    case 'd':
-                        consantCount++;
-                        break;
-                    case 'f':
-                        consantCount++;
-                        break;
-                    case 'g':
-                        consantCount++;
-                        break;
-                    case 'h':
-                        consantCount++;
-                        break;
-                    case 'j':
-                        consantCount++;
-                        break;
-                    case 'k':
-                        consantCount++;
-                        break;
-                    case 'l':
-                        consantCount++;
-                        break;
-                    case 'm':
-                        consantCount++;
-                        break;
-                    case 'n':
-                        consantCount++;
-                        break;
-                    case 'p':
-                        consantCount++;
-                        break;
-                    case 'q':
-                        consantCount++;
-                        break;
-                    case 'r':
-                        consantCount++;
-                        break;
-                    case 's':
-                        consantCount++;
-                        break;
-                    case 't':
-                        consantCount++;
-                        break;
-                    case 'v':
-                        consantCount++;
-                        break;
-                    case 'w':
-                        consantCount++;
-                        break;
-                    case 'x':
-                        consantCount++;
-                        break;
-                    case 'y':
-                        consantCount++;
-                        break;
-                    case 'z':
-                        consantCount++;
-                        break;
-                }
+                else if (consonant.indexOf(input.charAt(i)) != -1)
+                    consantCount++;
             }
 
             System.out.println("The number of vowels are: " + vowelCount +
