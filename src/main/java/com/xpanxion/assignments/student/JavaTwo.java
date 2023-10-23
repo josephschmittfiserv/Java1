@@ -1,6 +1,7 @@
 package com.xpanxion.assignments.student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class JavaTwo {
@@ -60,8 +61,49 @@ public class JavaTwo {
 
         System.out.println(people.toString().replace("[", "").replace("]", ""));
     }
+
+    public void ex2() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        int idInput;
+        ArrayList<Person> people = new ArrayList<Person>();
+        HashMap<Integer, Person> map = new HashMap<>();
+
+
+        while(true) {
+            System.out.print("Enter Person: ");
+            input = sc.nextLine();
+            if (input.equalsIgnoreCase("done")) break;
+            String[] parts = input.split(", ");
+
+            int id = Integer.parseInt(parts[0]);
+
+            String[] nameParts = parts[1].split(" ");
+
+            String first = nameParts[0];
+            String last = nameParts[1];
+            
+            Person person = new Person(id, first, last);
+
+            people.add(person);
+            map.put(id, person);
+        }
+
+        input = "";
+
+        while(true) {
+            System.out.print("Enter Person ID: ");
+            idInput = sc.nextInt();
+            if (input.equalsIgnoreCase("done")) break;
+
+            System.out.println(map.get(idInput).toString());
+        }
+
+    }
+
+
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex1();
+        javaTwo.ex2();
     }
 }
