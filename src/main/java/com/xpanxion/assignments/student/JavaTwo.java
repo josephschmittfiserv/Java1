@@ -102,13 +102,12 @@ public class JavaTwo {
 
     }
 
-    public class Product {
-        private int id;
+    public class Product extends Base{
         private String item;
         private double price;
 
         public Product(int id, String item, double price) {
-            this.id = id;
+            super(id);
             this.item = item;
             this.price = price;
         }
@@ -128,12 +127,11 @@ public class JavaTwo {
 
     }
 
-    public class Invoice {
+    public class Invoice extends Base{
         private ArrayList<Product> products;
-        private int id;
 
         public Invoice(int id) {
-            this.id = id;
+            super(id);
             this.products = new ArrayList<>();
         }
 
@@ -143,6 +141,18 @@ public class JavaTwo {
 
         public double getTotalCost() {
             return products.stream().mapToDouble(Product::getPrice).sum();
+        }
+    }
+
+    public abstract class Base {
+        private int id;
+
+        public Base(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return this.id;
         }
     }
 
