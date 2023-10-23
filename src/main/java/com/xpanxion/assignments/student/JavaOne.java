@@ -211,8 +211,5 @@ public class JavaOne {
     //
     // Private helper methods
     //
-    public static void main(String[] args) {
-        JavaOne javaOne = new JavaOne();
-        javaOne.ex10();
-    }
+    
 }
