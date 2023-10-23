@@ -1,5 +1,6 @@
 package com.xpanxion.assignments.student;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -101,9 +102,62 @@ public class JavaTwo {
 
     }
 
+    public class Product {
+        private int id;
+        private String item;
+        private double price;
+
+        public Product(int id, String item, double price) {
+            this.id = id;
+            this.item = item;
+            this.price = price;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getItem() {
+            return item;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+
+    }
+
+    public class Invoice {
+        private ArrayList<Product> products;
+        private int id;
+
+        public Invoice(int id) {
+            this.id = id;
+            this.products = new ArrayList<>();
+        }
+
+        public void addProduct(Product product) {
+            this.products.add(product);
+        }
+
+        public double getTotalCost() {
+            return products.stream().mapToDouble(Product::getPrice).sum();
+        }
+    }
+
+    public void ex3() {
+        var invoice =  new Invoice(1);
+        invoice.addProduct(new Product(111,"Mustard", 2.00));
+        invoice.addProduct(new Product(222,"Ketchup", 3.00));
+        invoice.addProduct(new Product(333,"Franks Hot Sauce", 4.00));
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        System.out.println("Total cost: " + formatter.format(invoice.getTotalCost()));
+    }
+
 
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex2();
+        javaTwo.ex3();
     }
 }
