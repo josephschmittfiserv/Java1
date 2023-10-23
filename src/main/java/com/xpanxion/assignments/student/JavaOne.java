@@ -191,7 +191,21 @@ public class JavaOne {
     }
 
     public void ex10() {
+        Scanner sc = new Scanner(System.in);
+        String spaces = "", s;
         System.out.println("Student 1: ex10.");
+
+        System.out.println("Enter a string: ");
+        s = sc.nextLine();
+
+        for (int i = 0; i < s.length(); i++) {
+            spaces = spaces + " ";
+            System.out.println(spaces + s.charAt(i));
+
+            if (s.charAt(i) == ' ') {
+                spaces = "";
+            }
+        }
     }
 
     //
@@ -199,6 +213,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex9();
+        javaOne.ex10();
     }
 }
