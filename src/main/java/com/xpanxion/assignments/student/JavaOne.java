@@ -1,5 +1,6 @@
 package com.xpanxion.assignments.student;
 
+import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -155,11 +156,38 @@ public class JavaOne {
     }
 
     public void ex8() {
+        Scanner sc = new Scanner(System.in);
+        int input2, input3, input4, input5;
+        double pricePerSqFt;
         System.out.println("Student 1: ex8.");
+
+        System.out.print("Enter price per square feet:");
+        pricePerSqFt = sc.nextDouble();
+        System.out.print("Enter room dimensions (width x height): ");
+        input2 = sc.nextInt();
+        input3 = sc.nextInt();
+        System.out.print("Enter room dimensions (width x height): ");
+        input4 = sc.nextInt();
+        input5 = sc.nextInt();
+
+        double price = ( pricePerSqFt * ((input2 * input3) + (input4 * input5)) );
+
+        System.out.printf("Total cost: %.2f", price);
     }
 
     public void ex9() {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+        int input2 = 0;
+        int numberToGuess = rand.nextInt(5);
         System.out.println("Student 1: ex9.");
+
+        while (input2 != numberToGuess) {
+            System.out.print("Enter a number: ");
+            input2 = sc.nextInt();
+            System.out.println("Try again... ");
+        }
+        System.out.println("You guessed it!!!");
     }
 
     public void ex10() {
@@ -171,6 +199,6 @@ public class JavaOne {
     //
     public static void main(String[] args) {
         JavaOne javaOne = new JavaOne();
-        javaOne.ex7();
+        javaOne.ex9();
     }
 }
