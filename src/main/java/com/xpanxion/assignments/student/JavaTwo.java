@@ -6,12 +6,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.concurrent.TimeUnit;
 
 public class JavaTwo {
 
@@ -319,12 +323,53 @@ public class JavaTwo {
         for (Person p : filteredList) {
             System.out.println(p);
         } 
-        
     }
 
+    public class Cat {
+        private String name;
+
+        public Cat(String name) {
+            this.name = name;
+        }
+
+        public void getName() {
+            System.out.println(this.name);
+        }
+    }
+
+    public void ex10() {
+        Queue<Cat> queue = new LinkedList<>();
+
+        Cat cat1 = new Cat("Alice");
+        Cat cat2 = new Cat("Bob");
+        Cat cat3 = new Cat("Charlie");
+        Cat cat4 = new Cat("Dan");
+
+        queue.add(cat1);
+        queue.add(cat2);
+        queue.add(cat3);
+        queue.add(cat4);
+
+        while(!queue.isEmpty()) {
+            for (Cat item : queue) {
+                item.getName();
+            }
+            queue.remove();
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            System.out.println();
+        }
+
+        
+
+    }
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex9();
+        javaTwo.ex10();
     }
 }
 
