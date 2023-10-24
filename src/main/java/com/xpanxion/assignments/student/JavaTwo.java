@@ -2,67 +2,73 @@ package com.xpanxion.assignments.student;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class JavaTwo {
 
-    // public class Person {
-    // private int id;
-    // private String firstName;
-    // private String lastName;
+    public class Person {
+    private int id;
+    private String firstName;
+    private String lastName;
 
-    // public Person(int id, String firstName, String lastName) {
-    // this.id = id;
-    // this.firstName = firstName;
-    // this.lastName = lastName;
-    // }
+    public Person(int id, String firstName, String lastName) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    }
 
-    // public String getFirstName() {
-    // return firstName;
-    // }
+    public String setLastName(String lastName) {
+        return this.lastName = lastName;
+    }
 
-    // public String getLastName() {
-    // return lastName;
-    // }
+    public String getFirstName() {
+    return firstName;
+    }
 
-    // public int getId() {
-    // return id;
-    // }
+    public String getLastName() {
+    return lastName;
+    }
 
-    // @Override
-    // public String toString() {
-    // return String.format("\nPerson{id='%d', firstName='%s', lastName'%s'}", id,
-    // firstName, lastName);
-    // }
-    // }
+    public int getId() {
+    return id;
+    }
 
-    // public void ex1() {
-    // Scanner sc = new Scanner(System.in);
-    // String input;
-    // ArrayList<Person> people = new ArrayList<Person>();
+    @Override
+    public String toString() {
+    return String.format("\nPerson{id='%d', firstName='%s', lastName'%s'}", id,
+    firstName, lastName);
+    }
+    }
 
-    // while(true) {
-    // System.out.print("Enter Person: ");
-    // input = sc.nextLine();
-    // if (input.equalsIgnoreCase("done")) break;
-    // String[] parts = input.split(", ");
+    public void ex1() {
+    Scanner sc = new Scanner(System.in);
+    String input;
+    ArrayList<Person> people = new ArrayList<Person>();
 
-    // int id = Integer.parseInt(parts[0]);
+    while(true) {
+    System.out.print("Enter Person: ");
+    input = sc.nextLine();
+    if (input.equalsIgnoreCase("done")) break;
+    String[] parts = input.split(", ");
 
-    // String[] nameParts = parts[1].split(" ");
+    int id = Integer.parseInt(parts[0]);
 
-    // String first = nameParts[0];
-    // String last = nameParts[1];
+    String[] nameParts = parts[1].split(" ");
 
-    // Person person = new Person(id, first, last);
+    String first = nameParts[0];
+    String last = nameParts[1];
 
-    // people.add(person);
-    // }
+    Person person = new Person(id, first, last);
 
-    // System.out.println(people.toString().replace("[", "").replace("]", ""));
-    // }
+    people.add(person);
+    }
+
+    System.out.println(people.toString().replace("[", "").replace("]", ""));
+    }
 
     // public void ex2() {
     // Scanner sc = new Scanner(System.in);
@@ -165,46 +171,46 @@ public class JavaTwo {
         System.out.println("Total cost: " + formatter.format(invoice.getTotalCost()));
     }
 
-    interface DataAccess {
-        Person getPerson();
-    }
+    // interface DataAccess {
+    //     Person getPerson();
+    // }
 
-    class Person {
-        private int id;
-        private String name;
+    // class Person {
+    //     private int id;
+    //     private String name;
 
-        public Person(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
+    //     public Person(int id, String name) {
+    //         this.id = id;
+    //         this.name = name;
+    //     }
 
-        @Override
-        public String toString() {
-            String[] names = new String[3];
-            names = name.split(" ", 2);
-            return String.format("\nPerson{id='%d', \nfirstName='%s', \nlastName='%s'}", id, names[0], names[1]);
-        }
-    }
+    //     @Override
+    //     public String toString() {
+    //         String[] names = new String[3];
+    //         names = name.split(" ", 2);
+    //         return String.format("\nPerson{id='%d', \nfirstName='%s', \nlastName='%s'}", id, names[0], names[1]);
+    //     }
+    // }
 
-    class Repository implements DataAccess {
-        private Map<Integer, Person> personMap;
+    // class Repository implements DataAccess {
+    //     private Map<Integer, Person> personMap;
 
-        public Repository() {
-            personMap = new HashMap<>();
-            personMap.put(1, new Person(1, "John Doe"));
-        }
+    //     public Repository() {
+    //         personMap = new HashMap<>();
+    //         personMap.put(1, new Person(1, "John Doe"));
+    //     }
 
-        @Override
-        public Person getPerson() {
-            return personMap.get(1);
-        }
-    }
+    //     @Override
+    //     public Person getPerson() {
+    //         return personMap.get(1);
+    //     }
+    // }
 
-    public void ex5() {
-        var repository = new Repository();
-        var p = repository.getPerson();
-        System.out.println(p);
-    }
+    // public void ex5() {
+    //     var repository = new Repository();
+    //     var p = repository.getPerson();
+    //     System.out.println(p);
+    // }
 
     public class Calculator {
         private ArrayList<String> strArr = new ArrayList<>();
@@ -213,17 +219,17 @@ public class JavaTwo {
             strArr.add(x + " + " + y + " = " + (x + y));
             System.out.println("Result: " + (x + y));
         }
-    
+
         public void sub(int x, int y) {
             strArr.add(x + " - " + y + " = " + (x - y));
             System.out.println("Result: " + (x - y));
         }
-    
+
         public void div(int x, int y) {
             strArr.add(x + " / " + y + " = " + (x / y));
             System.out.println("Result: " + (x / y));
         }
-    
+
         public void mul(int x, int y) {
             strArr.add(x + " * " + y + " = " + (x * y));
             System.out.println("Result: " + (x * y));
@@ -237,7 +243,7 @@ public class JavaTwo {
         String input3;
         Calculator calc = new Calculator();
 
-        while(true) {
+        while (true) {
             System.out.print("Enter first number:");
             input1 = sc.nextLine();
             if (input1.equals("done")) {
@@ -267,12 +273,24 @@ public class JavaTwo {
         }
 
         for (String item : calc.strArr) {
-                System.out.println(item);
+            System.out.println(item);
         }
+    }
+
+    public void ex7() {
+        var personList = Arrays.asList(
+                new Person(1, "Peter", "Jones"),
+                new Person(2, "John", "Smith"),
+                new Person(3, "Sue", "Anderson"));
+
+        personList.stream().map(e -> e.setLastName("xxx")).collect(Collectors.toList());
+        
+
+        System.out.println(personList);
     }
 
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex6();
+        javaTwo.ex7();
     }
 }
