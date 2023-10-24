@@ -119,19 +119,22 @@ public class JavaOne {
         input1 = sc.nextInt();
         System.out.print("Enter first number:");
         input2 = sc.nextInt();
-        
+
         System.out.println("Result: " + (input1 + input2));
     }
 
     public void add(int x, int y) {
         System.out.println(x + y);
     }
+
     public void sub(int x, int y) {
         System.out.println(x - y);
     }
+
     public void div(int x, int y) {
         System.out.println(x / y);
     }
+
     public void mul(int x, int y) {
         System.out.println(x * y);
     }
@@ -149,30 +152,51 @@ public class JavaOne {
         System.out.print("Enter operation (add, sub, mul, div): ");
         input3 = sc.next();
 
-        if (input3.equals("add")) add(input1, input2);
-        else if (input3.equals("sub")) sub(input1, input2);
-        else if (input3.equals("div")) div(input1, input2);
-        else if (input3.equals("mul")) mul(input1, input2);
+        if (input3.equals("add"))
+            add(input1, input2);
+        else if (input3.equals("sub"))
+            sub(input1, input2);
+        else if (input3.equals("div"))
+            div(input1, input2);
+        else if (input3.equals("mul"))
+            mul(input1, input2);
     }
 
     public void ex8() {
-        Scanner sc = new Scanner(System.in);
-        int input2, input3, input4, input5;
-        double pricePerSqFt;
-        System.out.println("Student 1: ex8.");
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the price of the carpet per square feet: ");
+        double price = in.nextDouble();
+        double totalArea = 0;
+        double totalCost = 0;
 
-        System.out.print("Enter price per square feet:");
-        pricePerSqFt = sc.nextDouble();
-        System.out.print("Enter room dimensions (width x height): ");
-        input2 = sc.nextInt();
-        input3 = sc.nextInt();
-        System.out.print("Enter room dimensions (width x height): ");
-        input4 = sc.nextInt();
-        input5 = sc.nextInt();
+        // neex this to clear the line
+        in.nextLine();
+        while (true) {
+            System.out.print("Enter the width and length of a room (or \"done\" to finish): ");
+            String line = in.nextLine();
 
-        double price = ( pricePerSqFt * ((input2 * input3) + (input4 * input5)) );
+            if (line.equalsIgnoreCase("done")) {
+                break;
+            }
 
-        System.out.printf("Total cost: %.2f", price);
+            //changed this to " "
+            String[] tokens = line.split(" ");
+            //changed this to index 2
+            System.out.println(tokens[0]);
+            System.out.println(tokens[2]);
+            double width = Double.parseDouble(tokens[0]);
+            double length = Double.parseDouble(tokens[2]);
+
+            double area = width * length;
+            double cost = area * price;
+            totalArea += area;
+            totalCost += cost;
+        }
+
+        in.close();
+
+        System.out.println("The total area of the carpet is " + totalArea + " square feet.");
+        System.out.println("The total cost of the carpet installation job is $" + totalCost + ".");
     }
 
     public void ex9() {
@@ -211,5 +235,8 @@ public class JavaOne {
     //
     // Private helper methods
     //
-    
+    public static void main(String[] args) {
+        JavaOne javaTwo = new JavaOne();
+        javaTwo.ex8();
+    }
 }
