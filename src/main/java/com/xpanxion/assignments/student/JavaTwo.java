@@ -206,8 +206,12 @@ public class JavaTwo {
         System.out.println(p);
     }
 
-    public static void main(String[] args) {
-        JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex5();
+    public void ex6() {
+
     }
+
+    // public static void main(String[] args) {
+    //     JavaTwo javaTwo = new JavaTwo();
+    //     javaTwo.ex6();
+    // }
 }
