@@ -235,8 +235,8 @@ public class JavaOne {
     //
     // Private helper methods
     //
-    public static void main(String[] args) {
-        JavaOne javaTwo = new JavaOne();
-        javaTwo.ex8();
-    }
+    // public static void main(String[] args) {
+    //     JavaOne javaTwo = new JavaOne();
+    //     javaTwo.ex8();
+    // }
 }

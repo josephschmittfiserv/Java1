@@ -206,12 +206,73 @@ public class JavaTwo {
         System.out.println(p);
     }
 
-    public void ex6() {
+    public class Calculator {
+        private ArrayList<String> strArr = new ArrayList<>();
+
+        public void add(int x, int y) {
+            strArr.add(x + " + " + y + " = " + (x + y));
+            System.out.println("Result: " + (x + y));
+        }
+    
+        public void sub(int x, int y) {
+            strArr.add(x + " - " + y + " = " + (x - y));
+            System.out.println("Result: " + (x - y));
+        }
+    
+        public void div(int x, int y) {
+            strArr.add(x + " / " + y + " = " + (x / y));
+            System.out.println("Result: " + (x / y));
+        }
+    
+        public void mul(int x, int y) {
+            strArr.add(x + " * " + y + " = " + (x * y));
+            System.out.println("Result: " + (x * y));
+        }
 
     }
 
-    // public static void main(String[] args) {
-    //     JavaTwo javaTwo = new JavaTwo();
-    //     javaTwo.ex6();
-    // }
+    public void ex6() {
+        Scanner sc = new Scanner(System.in);
+        String input1, input2;
+        String input3;
+        Calculator calc = new Calculator();
+
+        while(true) {
+            System.out.print("Enter first number:");
+            input1 = sc.nextLine();
+            if (input1.equals("done")) {
+                break;
+            }
+
+            System.out.print("Enter second number:");
+            input2 = sc.nextLine();
+            if (input2.equals("done")) {
+                break;
+            }
+
+            System.out.print("Enter operation (add, sub, mul, div): ");
+            input3 = sc.nextLine();
+            if (input3.equals("done")) {
+                break;
+            }
+
+            if (input3.equals("add"))
+                calc.add(Integer.parseInt(input1), Integer.parseInt(input2));
+            else if (input3.equals("sub"))
+                calc.sub(Integer.parseInt(input1), Integer.parseInt(input2));
+            else if (input3.equals("div"))
+                calc.div(Integer.parseInt(input1), Integer.parseInt(input2));
+            else if (input3.equals("mul"))
+                calc.mul(Integer.parseInt(input1), Integer.parseInt(input2));
+        }
+
+        for (String item : calc.strArr) {
+                System.out.println(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        JavaTwo javaTwo = new JavaTwo();
+        javaTwo.ex6();
+    }
 }
