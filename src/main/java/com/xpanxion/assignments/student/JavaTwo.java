@@ -3,106 +3,106 @@ package com.xpanxion.assignments.student;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class JavaTwo {
 
-    public class Person {
-        private int id;
-        private String firstName;
-        private String lastName;
+    // public class Person {
+    // private int id;
+    // private String firstName;
+    // private String lastName;
 
-        public Person(int id, String firstName, String lastName) {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-        }
+    // public Person(int id, String firstName, String lastName) {
+    // this.id = id;
+    // this.firstName = firstName;
+    // this.lastName = lastName;
+    // }
 
-        public String getFirstName() {
-            return firstName;
-        }
+    // public String getFirstName() {
+    // return firstName;
+    // }
 
-        public String getLastName() {
-            return lastName;
-        }
+    // public String getLastName() {
+    // return lastName;
+    // }
 
-        public int getId() {
-            return id;
-        }
+    // public int getId() {
+    // return id;
+    // }
 
-        @Override
-        public String toString() {
-            return String.format("\nPerson{id='%d', firstName='%s', lastName'%s'}", id, firstName, lastName);
-        }
-    }
+    // @Override
+    // public String toString() {
+    // return String.format("\nPerson{id='%d', firstName='%s', lastName'%s'}", id,
+    // firstName, lastName);
+    // }
+    // }
 
-    public void ex1() {
-        Scanner sc = new Scanner(System.in);
-        String input;
-        ArrayList<Person> people = new ArrayList<Person>();
+    // public void ex1() {
+    // Scanner sc = new Scanner(System.in);
+    // String input;
+    // ArrayList<Person> people = new ArrayList<Person>();
 
+    // while(true) {
+    // System.out.print("Enter Person: ");
+    // input = sc.nextLine();
+    // if (input.equalsIgnoreCase("done")) break;
+    // String[] parts = input.split(", ");
 
-        while(true) {
-            System.out.print("Enter Person: ");
-            input = sc.nextLine();
-            if (input.equalsIgnoreCase("done")) break;
-            String[] parts = input.split(", ");
+    // int id = Integer.parseInt(parts[0]);
 
-            int id = Integer.parseInt(parts[0]);
+    // String[] nameParts = parts[1].split(" ");
 
-            String[] nameParts = parts[1].split(" ");
+    // String first = nameParts[0];
+    // String last = nameParts[1];
 
-            String first = nameParts[0];
-            String last = nameParts[1];
-            
-            Person person = new Person(id, first, last);
+    // Person person = new Person(id, first, last);
 
-            people.add(person);
-        }
+    // people.add(person);
+    // }
 
-        System.out.println(people.toString().replace("[", "").replace("]", ""));
-    }
+    // System.out.println(people.toString().replace("[", "").replace("]", ""));
+    // }
 
-    public void ex2() {
-        Scanner sc = new Scanner(System.in);
-        String input;
-        int idInput;
-        ArrayList<Person> people = new ArrayList<Person>();
-        HashMap<Integer, Person> map = new HashMap<>();
+    // public void ex2() {
+    // Scanner sc = new Scanner(System.in);
+    // String input;
+    // int idInput;
+    // ArrayList<Person> people = new ArrayList<Person>();
+    // HashMap<Integer, Person> map = new HashMap<>();
 
+    // while(true) {
+    // System.out.print("Enter Person: ");
+    // input = sc.nextLine();
+    // if (input.equalsIgnoreCase("done")) break;
+    // String[] parts = input.split(", ");
 
-        while(true) {
-            System.out.print("Enter Person: ");
-            input = sc.nextLine();
-            if (input.equalsIgnoreCase("done")) break;
-            String[] parts = input.split(", ");
+    // int id = Integer.parseInt(parts[0]);
 
-            int id = Integer.parseInt(parts[0]);
+    // String[] nameParts = parts[1].split(" ");
 
-            String[] nameParts = parts[1].split(" ");
+    // String first = nameParts[0];
+    // String last = nameParts[1];
 
-            String first = nameParts[0];
-            String last = nameParts[1];
-            
-            Person person = new Person(id, first, last);
+    // Person person = new Person(id, first, last);
 
-            people.add(person);
-            map.put(id, person);
-        }
+    // people.add(person);
+    // map.put(id, person);
+    // }
 
-        input = "";
+    // input = "";
 
-        while(true) {
-            System.out.print("Enter Person ID: ");
-            idInput = sc.nextInt();
-            if (input.equalsIgnoreCase("done")) break;
+    // while(true) {
+    // System.out.print("Enter Person ID: ");
+    // idInput = sc.nextInt();
+    // if (input.equalsIgnoreCase("done")) break;
 
-            System.out.println(map.get(idInput).toString());
-        }
+    // System.out.println(map.get(idInput).toString());
+    // }
 
-    }
+    // }
 
-    public class Product extends Base{
+    public class Product extends Base {
         private String item;
         private double price;
 
@@ -113,7 +113,7 @@ public class JavaTwo {
         }
 
         public int getId() {
-            return id;
+            return getId();
         }
 
         public String getItem() {
@@ -124,10 +124,9 @@ public class JavaTwo {
             return price;
         }
 
-
     }
 
-    public class Invoice extends Base{
+    public class Invoice extends Base {
         private ArrayList<Product> products;
 
         public Invoice(int id) {
@@ -144,6 +143,7 @@ public class JavaTwo {
         }
     }
 
+    // aka ex. 4
     public abstract class Base {
         private int id;
 
@@ -157,17 +157,57 @@ public class JavaTwo {
     }
 
     public void ex3() {
-        var invoice =  new Invoice(1);
-        invoice.addProduct(new Product(111,"Mustard", 2.00));
-        invoice.addProduct(new Product(222,"Ketchup", 3.00));
-        invoice.addProduct(new Product(333,"Franks Hot Sauce", 4.00));
+        var invoice = new Invoice(1);
+        invoice.addProduct(new Product(111, "Mustard", 2.00));
+        invoice.addProduct(new Product(222, "Ketchup", 3.00));
+        invoice.addProduct(new Product(333, "Franks Hot Sauce", 4.00));
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         System.out.println("Total cost: " + formatter.format(invoice.getTotalCost()));
     }
 
+    interface DataAccess {
+        Person getPerson();
+    }
+
+    class Person {
+        private int id;
+        private String name;
+
+        public Person(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            String[] names = new String[3];
+            names = name.split(" ", 2);
+            return String.format("\nPerson{id='%d', \nfirstName='%s', \nlastName='%s'}", id, names[0], names[1]);
+        }
+    }
+
+    class Repository implements DataAccess {
+        private Map<Integer, Person> personMap;
+
+        public Repository() {
+            personMap = new HashMap<>();
+            personMap.put(1, new Person(1, "John Doe"));
+        }
+
+        @Override
+        public Person getPerson() {
+            return personMap.get(1);
+        }
+    }
+
+    public void ex5() {
+        var repository = new Repository();
+        var p = repository.getPerson();
+        System.out.println(p);
+    }
 
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex3();
+        javaTwo.ex5();
     }
 }
