@@ -6,8 +6,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class JavaTwo {
@@ -32,7 +35,7 @@ public class JavaTwo {
         }
 
         public String getLastName() {
-            return lastName;
+            return this.lastName;
         }
 
         public int getId() {
@@ -297,14 +300,32 @@ public class JavaTwo {
                 new Person(1, "Charlie", "Jones"),
                 new Person(2, "Zoey", "Smith"),
                 new Person(3, "Adam", "Anderson"));
-
         personList.sort(Comparator.comparing(Person::getFirstName));
 
         System.out.println(personList);
     }
 
+
+    public void ex9() {
+        var personList = Arrays.asList(
+                new Person(1, "Charlie", "Jones"),
+                new Person(2, "Zoey", "Smith"),
+                new Person(3, "Adam", "Anderson"));
+
+        List<Person> filteredList = personList.stream()
+                .filter(p -> p.getLastName().equals("Smith"))
+                .collect(Collectors.toList());
+
+        for (Person p : filteredList) {
+            System.out.println(p);
+        } 
+        
+    }
+
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex8();
+        javaTwo.ex9();
     }
 }
+
+
