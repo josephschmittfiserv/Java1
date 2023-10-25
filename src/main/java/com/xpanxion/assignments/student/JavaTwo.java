@@ -294,9 +294,9 @@ public class JavaTwo {
                 new Person(2, "John", "Smith"),
                 new Person(3, "Sue", "Anderson"));
 
-        personList.stream().map(e -> e.setLastName("xxx")).collect(Collectors.toList());
+                List<Person> newPersonList = personList.stream().map(person -> new Person(person.getId(), person.getFirstName(), "xxx")).collect(Collectors.toList());
 
-        System.out.println(personList);
+        System.out.println(newPersonList);
     }
 
     public void ex8() {
@@ -369,7 +369,7 @@ public class JavaTwo {
     }
     public static void main(String[] args) {
         JavaTwo javaTwo = new JavaTwo();
-        javaTwo.ex10();
+        javaTwo.ex7();
     }
 }
 
